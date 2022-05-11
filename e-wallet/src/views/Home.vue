@@ -1,18 +1,44 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <Top :Heading="'E-WALLET'" :SubHeading="'ACTIVE CARD'" />
+    <CardStack />
+    <button v-on:click="addCard">
+      <span class="buttonText">ADD NEW CARD</span>
+    </button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import Top from "../components/Top.vue";
+import CardStack from "../components/CardStack.vue";
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    Top,
+    CardStack
+  },
+  methods: {
+    addCard() {
+      this.$router.push("/addcard");
+    }
   }
 };
 </script>
+<style>
+button {
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 60px;
+  background-color: white;
+  margin-top: 200px;
+}
+button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.buttonText {
+  font-size: large;
+}
+</style>
